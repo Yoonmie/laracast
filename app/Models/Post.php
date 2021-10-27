@@ -51,4 +51,13 @@ class Post {
         // return cache()->remember("posts.{slug}", 1200, fn() => file_get_contents($path));
         return static::all()->firstWhere('slug',$slug);
     }
+    
+    public static function findOrFail($slug){
+        $post = static::find($slug);
+
+        if(!$post){
+            abort(404);
+        }
+        return $post;
+    }
 }
