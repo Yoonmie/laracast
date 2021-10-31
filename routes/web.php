@@ -22,11 +22,11 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('posts/{post}',function($id){
+Route::get('posts/{post:slug}',function(Post $post){
 
     //find a post by its slug and pass it to a view called "post"
     return view('post',[
-        'post' => Post::findOrFail($id)
+        'post' => $post
     ]);
 
 });//regular expression; post = line no 28 'post'
