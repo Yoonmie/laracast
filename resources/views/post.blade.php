@@ -1,7 +1,8 @@
 <x-layout>
     <article>
         <h1>{!!  $post->title !!}</h1>
-        <a href="#">
+
+        <a href="/categories/{{ $post->category->slug }}">
             <p>{!! $post->category->name !!}</p>
         </a>
        <div>
