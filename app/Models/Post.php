@@ -7,19 +7,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    use HasFactory;
+   use HasFactory;
 
-    protected $guarded=[];
+   protected $guarded=[];
 
-    // protected $fillable=['title','excerpt','body'];
+   protected $with = ['category','author'];
 
-    public function category()
-    {
-       return $this->belongsTo(Category::class);
-    }
+   // protected $fillable=['title','excerpt','body'];
 
-    public function author()
-    {
-       return $this->belongsTo(User::class, 'user_id');
-    }
+   public function category()
+   {
+      return $this->belongsTo(Category::class);
+   }
+
+   public function author()
+   {
+      return $this->belongsTo(User::class, 'user_id');
+   }
 }
